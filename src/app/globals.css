@@ -1,26 +1,211 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eef4f8;
+  --foreground: #111827;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", "Cascadia Code", "Consolas", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.feishu-prose > * + * {
+  margin-top: 0.9rem;
+}
+
+.feishu-prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.feishu-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.feishu-prose p,
+.feishu-prose li {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.feishu-prose ul,
+.feishu-prose ol {
+  padding-left: 1.4rem;
+}
+
+.feishu-prose ul {
+  list-style: disc;
+}
+
+.feishu-prose ol {
+  list-style: decimal;
+}
+
+.feishu-prose a {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.feishu-prose blockquote {
+  border-left: 3px solid #bfdbfe;
+  padding-left: 1rem;
+  color: #475569;
+}
+
+.feishu-prose code {
+  border-radius: 0.45rem;
+  background: #eff6ff;
+  padding: 0.15rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+}
+
+.feishu-prose pre {
+  overflow-x: auto;
+  border-radius: 1rem;
+  background: #0f172a;
+  padding: 1rem 1.1rem;
+  color: #e2e8f0;
+}
+
+.feishu-prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.feishu-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.feishu-prose th,
+.feishu-prose td {
+  border: 1px solid #dbe4ee;
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+}
+
+.feishu-prose th {
+  background: #f8fbff;
+  font-weight: 600;
+}
+
+.feishu-prose img {
+  display: block;
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.feishu-prose .editor-image {
+  margin: 1rem 0;
+  max-height: 28rem;
+  object-fit: cover;
+}
+
+.feishu-prose .is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: #94a3b8;
+}
+
+.feishu-prose ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0.25rem;
+}
+
+.feishu-prose ul[data-type="taskList"] li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.feishu-prose ul[data-type="taskList"] li > label {
+  margin-top: 0.35rem;
+}
+
+.feishu-prose ul[data-type="taskList"] li > div {
+  flex: 1;
+}
+
+.media-card {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #dbe4ee;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  padding: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .media-card {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+}
+
+.media-card__image {
+  width: 100%;
+  min-height: 14rem;
+  object-fit: cover;
+  border-radius: 1.15rem;
+}
+
+.media-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.media-card__kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.media-card__heading {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.media-card__description {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.media-card--sky .media-card__kicker {
+  color: #0369a1;
+}
+
+.media-card--amber .media-card__kicker {
+  color: #b45309;
+}
+
+.media-card--emerald .media-card__kicker {
+  color: #047857;
 }
