@@ -51,3 +51,5 @@ Then open `http://192.168.0.4:3001/` from another device on the same network.
 - Treat collaboration, comments, and AI as extension layers on top of the core editor schema.
 - If you continue on this project, the technical direction is documented in `docs/technical-plan.md`.
 - Project plan and execution summary are documented in `docs/project-plan-and-execution.md`.
+- ![Uploading image.png…]()
+
